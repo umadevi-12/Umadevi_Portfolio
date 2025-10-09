@@ -88,12 +88,13 @@ const Greeting = styled.div`
 `;
 
 const Title = styled.h1`
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  font-weight: 800;
+  font-size: clamp(2.5rem, 5vw, 2rem);
+  font-weight: 600;
   background: linear-gradient(135deg, #33d0beff 0%, #20b2ca 50%, #48d1e6 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 0.5rem;
+  
 `;
 
 const Subtitle = styled.h2`

@@ -1,4 +1,3 @@
-// GitHubContributions.jsx - Adjusted Image Sizes
 import React from "react";
 import styled from "styled-components";
 
@@ -6,57 +5,33 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 4rem 2rem;
+  justify-content: flex-start;
+  padding: 2rem 1rem;
   background: transparent;
-  min-height: 100vh;
+  min-height: 80vh;
 `;
 
 const Title = styled.h1`
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 800;
   text-align: center;
   color: #33d0beff;
-  margin-bottom: 3rem;
-  position: relative;
-
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: -12px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 120px;
-    height: 4px;
-    background: linear-gradient(90deg, transparent, #33d0beff, transparent);
-  }
+  margin-bottom: 2rem;
 
   @media (max-width: 768px) {
-    font-size: 2.2rem;
+    font-size: 2rem;
   }
 `;
 
 const SectionTitle = styled.h2`
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 700;
   text-align: center;
   color: #33d0beff;
-  margin: 4rem 0 2rem 0;
-  position: relative;
-
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 3px;
-    background: linear-gradient(90deg, transparent, #33d0beff, transparent);
-  }
+  margin: 2rem 0 1rem 0;
 
   @media (max-width: 768px) {
-    font-size: 2rem;
+    font-size: 1.7rem;
   }
 `;
 
@@ -64,67 +39,59 @@ const ImageContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 3rem;
+  gap: 1.5rem;
   width: 100%;
-  max-width: 1800px;
+  max-width: 1400px;
 `;
 
-// First main image - bigger
 const FirstMainImage = styled.img`
-  width: 85%;
-  max-width: 1000px;
-  height: auto;
-  border-radius: 16px;
-  box-shadow: 0 14px 48px rgba(51, 208, 190, 0.3);
-  border: 2px solid rgba(51, 208, 190, 0.3);
-  transition: all 0.3s ease;
-
-  &:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 18px 52px rgba(51, 208, 190, 0.35);
-    border-color: rgba(51, 208, 190, 0.4);
-  }
-`;
-
-// Last main image - smaller
-const LastMainImage = styled.img`
-  width: 70%;
-  max-width: 700px;
+  width: 80%;
+  max-width: 800px;
   height: auto;
   border-radius: 16px;
   box-shadow: 0 8px 32px rgba(51, 208, 190, 0.25);
-  border: 2px solid rgba(51, 208, 190, 0.25);
-  transition: all 0.3s ease;
-
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 40px rgba(51, 208, 190, 0.3);
-    border-color: rgba(51, 208, 190, 0.3);
-  }
-`;
-
-const StatsContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2.5rem;
-  justify-content: center;
-  width: 100%;
-  margin: 2rem 0;
-`;
-
-const StatImage = styled.img`
-  flex: 1 1 400px;
-  max-width: 650px;
-  height: auto;
-  border-radius: 16px;
-  box-shadow: 0 8px 28px rgba(51, 208, 190, 0.2);
   border: 2px solid rgba(51, 208, 190, 0.2);
   transition: all 0.3s ease;
 
   &:hover {
     transform: translateY(-4px);
     box-shadow: 0 12px 36px rgba(51, 208, 190, 0.3);
-    border-color: rgba(51, 208, 190, 0.3);
+  }
+`;
+
+const StatsContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  justify-items: center;
+  align-items: center;
+  width: 100%;
+  margin: 1rem 0;
+  
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+const StatImage = styled.img`
+  width: 100%;
+  height: 300px;
+  max-width: 400px;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(51, 208, 190, 0.2);
+  border: 2px solid rgba(51, 208, 190, 0.2);
+  transition: all 0.3s ease;
+  background: rgba(26, 26, 46, 0.8);
+  padding: 0.5rem;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 28px rgba(51, 208, 190, 0.25);
   }
 `;
 
@@ -134,13 +101,11 @@ const GitHubContributions = () => {
       <Title>GitHub Submissions</Title>
       
       <ImageContainer>
-        {/* First Main Image - Bigger */}
         <FirstMainImage
           src="https://res.cloudinary.com/dk8x0cl0c/image/upload/v1759497313/WhatsApp_Image_2025-10-03_at_15.06.50_ede73483_tnehp3.jpg"
           alt="GitHub Contributions"
         />
 
-        {/* GitHub Stats Section */}
         <SectionTitle>GitHub Stats</SectionTitle>
 
         <StatsContainer>
@@ -152,13 +117,11 @@ const GitHubContributions = () => {
             src="https://res.cloudinary.com/dk8x0cl0c/image/upload/v1759552363/Screenshot_2025-10-04_095941_k5u98t.png"
             alt="GitHub Contribution 2"
           />
+          <StatImage
+            src="https://res.cloudinary.com/dk8x0cl0c/image/upload/v1759497814/Screenshot_2025-10-03_185315_yxjytt.png"
+            alt="GitHub Contribution 3"
+          />
         </StatsContainer>
-
-        {/* Last Main Image - Smaller */}
-        <LastMainImage
-          src="https://res.cloudinary.com/dk8x0cl0c/image/upload/v1759497814/Screenshot_2025-10-03_185315_yxjytt.png"
-          alt="GitHub Contributions Screenshot"
-        />
       </ImageContainer>
     </Container>
   );

@@ -1,4 +1,4 @@
-// App.jsx - Fixed boolean attribute warnings + Rounded button style
+// App.jsx - Fixed spacing between sections
 import React, { useState, useEffect } from "react";
 import styled, { keyframes, createGlobalStyle } from "styled-components";
 import Home from "./components/Home";
@@ -10,7 +10,6 @@ import Certificates from "./components/Certificates";
 import GitHubContributions from "./components/GitHubContributions";
 import { FaBars, FaTimes } from "react-icons/fa";
 
-/* 🌟 Global Styles: Removes rectangular outline, adds rounded and smooth buttons */
 const GlobalStyle = createGlobalStyle`
   button, a, input, textarea, select {
     border-radius: 12px;
@@ -56,7 +55,6 @@ const logoPulse = keyframes`
   50% { transform: scale(1.1); }
 `;
 
-// Fixed: Use data attribute instead of boolean prop
 const Nav = styled.nav.attrs(props => ({
   'data-scrolled': props['data-scrolled'] ? 'true' : 'false'
 }))`
@@ -92,7 +90,7 @@ const Logo = styled.a`
   cursor: pointer;
 
   img {
-    height: 70px;
+    height: 40px;
     width: auto;
     border-radius: 50%;
   }
@@ -170,7 +168,6 @@ const MenuIcon = styled.div`
   }
 `;
 
-// Fixed: Use data attribute instead of boolean prop
 const MobileMenu = styled.div.attrs(props => ({
   'data-isopen': props['data-isopen'] ? 'true' : 'false'
 }))`
@@ -235,17 +232,17 @@ const CloseIcon = styled.div`
 `;
 
 const Section = styled.section`
-  padding: 2rem 1rem;
-  margin-top: 4rem;
-  scroll-margin-top: 4rem;
+  padding: 1rem 0.5rem;
+  margin-top: 3rem;
+  scroll-margin-top: 3rem;
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
   background: transparent;
 
   @media (max-width: 768px) {
-    padding: 1rem 0.5rem;
-    margin-top: 3rem;
+    padding: 0.5rem 0.25rem;
+    margin-top: 2.5rem;
   }
 `;
 
@@ -298,7 +295,7 @@ const App = () => {
 
   return (
     <Container>
-      <GlobalStyle /> {/* ✅ global rounded button fix */}
+      <GlobalStyle />
       <Nav data-scrolled={scrolled}>
         <NavWrapper>
           <Logo href="#home" onClick={(e) => handleNavClick(e, "home")}>
