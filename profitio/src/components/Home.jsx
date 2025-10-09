@@ -116,7 +116,7 @@ const Description = styled.p`
   }
 
   @media (min-width: 768px) {
-    font-size: 1.125rem;
+    font-size: 1.126rem;
   }
 `;
 

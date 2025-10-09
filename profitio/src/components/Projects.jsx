@@ -269,7 +269,7 @@ const TechTags = styled.div`
 const TechTag = styled.span`
   background: rgba(51,208,190,0.15);
   color: #33d0beff;
-  padding: 0.25rem 0.6rem;
+  padding: 0.25rem 0.5rem;
   border-radius: 8px;
   font-size: 0.7rem;
   font-weight: 600;

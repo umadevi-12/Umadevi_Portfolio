@@ -18,7 +18,7 @@ const Title = styled.h1`
   color: #33d0beff;
   margin-bottom: 2rem;
 
-  @media (max-width: 768px) {
+  @media (max-width: 767px) {
     font-size: 2rem;
   }
 `;

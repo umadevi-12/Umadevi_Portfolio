@@ -151,7 +151,7 @@ const EducationContent = styled.div`
 `;
 
 const Period = styled.div`
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   font-weight: 600;
   color: #33d0beff;
   margin-bottom: 0.4rem;

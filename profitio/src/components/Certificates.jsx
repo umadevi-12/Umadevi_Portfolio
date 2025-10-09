@@ -114,7 +114,7 @@ const Course = styled.h4`
   color: #e2e8f0;
   font-size: 1.2rem; // smaller
   margin-bottom: 0.8rem;
-  font-weight: 600;
+  font-weight: 550;
 `;
 
 const Timeline = styled.div`
