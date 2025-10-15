@@ -1,4 +1,4 @@
-// Contact.jsx - Decreased Font Sizes
+// Contact.jsx — Compact Height Version
 import React, { useRef, useState } from "react";
 import styled from "styled-components";
 import emailjs from "emailjs-com";
@@ -11,65 +11,64 @@ import {
   FaMapMarkerAlt,
 } from "react-icons/fa";
 
-// Styled Components
 const Section = styled.section`
-  padding: 3rem 1rem;
+  padding: 2rem 1rem; /* reduced padding */
   background: transparent;
   color: white;
   position: relative;
   overflow: hidden;
-  min-height: 100vh;
+  min-height: 70vh; /* reduced height */
   display: flex;
   align-items: center;
 `;
 
 const Container = styled.div`
-  max-width: 1200px;
+  max-width: 1100px; /* slightly narrower */
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.5rem;
+  gap: 1rem; /* reduced gap */
   position: relative;
   z-index: 1;
   width: 100%;
 
   @media (min-width: 768px) {
-    grid-template-columns: 1.2fr 0.8fr;
+    grid-template-columns: 1.1fr 0.9fr;
   }
 `;
 
 const Box = styled.div`
   background: rgba(26, 26, 46, 0.9);
-  padding: 2rem;
-  border-radius: 20px;
+  padding: 1.5rem; /* reduced padding */
+  border-radius: 16px;
   border: 2px solid rgba(51, 208, 190, 0.2);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(10px);
+  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(8px);
   transition: all 0.3s ease;
 
   &:hover {
     border-color: rgba(51, 208, 190, 0.4);
-    box-shadow: 0 12px 40px rgba(51, 208, 190, 0.2);
-    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(51, 208, 190, 0.2);
+    transform: translateY(-3px);
   }
 `;
 
 const Title = styled.h2`
-  font-size: 2rem; /* decreased from 2.5rem */
-  font-weight: 700; /* slightly less bold */
+  font-size: 1.8rem;
+  font-weight: 700;
   color: #33d0beff;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.2rem;
   text-align: center;
   position: relative;
 
   &::after {
     content: '';
     position: absolute;
-    bottom: -8px;
+    bottom: -6px;
     left: 50%;
     transform: translateX(-50%);
-    width: 60px; /* decreased width */
-    height: 3px; /* decreased height */
+    width: 50px;
+    height: 2px;
     background: linear-gradient(90deg, transparent, #33d0beff, transparent);
   }
 `;
@@ -77,27 +76,26 @@ const Title = styled.h2`
 const Detail = styled.div`
   display: flex;
   align-items: center;
-  gap: 0.75rem; /* slightly smaller gap */
-  margin-bottom: 1rem; /* reduced margin */
-  padding: 0.75rem; /* smaller padding */
-  border-radius: 10px; /* slightly smaller */
+  gap: 0.6rem;
+  margin-bottom: 0.8rem;
+  padding: 0.6rem;
+  border-radius: 8px;
   transition: all 0.3s ease;
   background: rgba(51, 208, 190, 0.05);
 
   &:hover {
     background: rgba(51, 208, 190, 0.1);
-    transform: translateX(3px);
+    transform: translateX(2px);
   }
 
   svg {
-    font-size: 1.25rem; /* smaller icon */
+    font-size: 1.1rem;
     color: #33d0beff;
-    flex-shrink: 0;
   }
 
   a,
   p {
-    font-size: 0.9rem; /* smaller text */
+    font-size: 0.85rem;
     color: #e5e7eb;
     text-decoration: none;
     transition: 0.3s ease;
@@ -112,14 +110,14 @@ const Detail = styled.div`
 const Form = styled.form`
   display: flex;
   flex-direction: column;
-  gap: 1rem; /* slightly smaller gap */
+  gap: 0.8rem;
 `;
 
 const Heading = styled.h2`
-  font-size: 1.8rem; /* decreased from 2.2rem */
+  font-size: 1.6rem;
   font-weight: 700;
   text-align: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   color: #e2e8f0;
 
   span {
@@ -128,19 +126,18 @@ const Heading = styled.h2`
 `;
 
 const Input = styled.input`
-  padding: 0.9rem 1rem; /* reduced padding */
-  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
   background: rgba(55, 65, 81, 0.5);
   border: 2px solid rgba(75, 85, 99, 0.5);
   color: white;
+  font-size: 0.9rem;
   outline: none;
-  font-size: 0.95rem; /* smaller text */
   transition: all 0.3s ease;
-  font-family: inherit;
 
   &:focus {
     border-color: #33d0beff;
-    box-shadow: 0 0 0 3px rgba(51, 208, 190, 0.2);
+    box-shadow: 0 0 0 2px rgba(51, 208, 190, 0.2);
     background: rgba(55, 65, 81, 0.7);
   }
 
@@ -150,21 +147,20 @@ const Input = styled.input`
 `;
 
 const TextArea = styled.textarea`
-  padding: 0.9rem 1rem; /* reduced padding */
-  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
   background: rgba(55, 65, 81, 0.5);
   border: 2px solid rgba(75, 85, 99, 0.5);
   color: white;
-  outline: none;
-  min-height: 120px; /* slightly shorter */
+  min-height: 100px;
   resize: vertical;
-  font-size: 0.95rem; /* smaller text */
+  font-size: 0.9rem;
+  outline: none;
   transition: all 0.3s ease;
-  font-family: inherit;
 
   &:focus {
     border-color: #33d0beff;
-    box-shadow: 0 0 0 3px rgba(51, 208, 190, 0.2);
+    box-shadow: 0 0 0 2px rgba(51, 208, 190, 0.2);
     background: rgba(55, 65, 81, 0.7);
   }
 
@@ -174,8 +170,8 @@ const TextArea = styled.textarea`
 `;
 
 const Button = styled.button`
-  padding: 0.9rem 1.8rem; /* smaller button */
-  border-radius: 10px;
+  padding: 0.75rem 1.4rem;
+  border-radius: 8px;
   background: linear-gradient(135deg, #33d0beff, #20b2ca);
   color: white;
   font-weight: 600;
@@ -185,28 +181,27 @@ const Button = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.6rem;
-  font-size: 1rem; /* slightly smaller */
-  font-family: inherit;
-  margin-top: 1rem;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  margin-top: 0.8rem;
 
   &:hover {
     background: linear-gradient(135deg, #20b2ca, #33d0beff);
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(51, 208, 190, 0.4);
+    box-shadow: 0 4px 14px rgba(51, 208, 190, 0.4);
   }
 
   svg {
-    font-size: 1rem; /* smaller icon */
+    font-size: 0.9rem;
   }
 `;
 
 const Message = styled.p`
   text-align: center;
   font-weight: 600;
-  font-size: 0.95rem; /* smaller message */
-  padding: 0.75rem;
-  border-radius: 8px;
+  font-size: 0.85rem;
+  padding: 0.6rem;
+  border-radius: 6px;
   background: ${(props) =>
     props.success ? "rgba(34, 197, 94, 0.1)" : "rgba(248, 113, 113, 0.1)"};
   color: ${(props) => (props.success ? "#22c55e" : "#f87171")};
@@ -221,7 +216,6 @@ const Contact = () => {
 
   const sendEmail = (e) => {
     e.preventDefault();
-
     emailjs
       .sendForm(
         "service_jii94tf",
@@ -230,7 +224,7 @@ const Contact = () => {
         "kH58J6-BhUffLq9kc"
       )
       .then(
-        (result) => {
+        () => {
           setMsg("✅ Message sent successfully!");
           setSuccess(true);
           formRef.current.reset();
@@ -252,15 +246,12 @@ const Contact = () => {
             <Heading>
               Contact <span>Me</span>
             </Heading>
-
             <Input type="text" name="name" placeholder="Your Name" required />
             <Input type="email" name="email" placeholder="Your Email" required />
             <TextArea name="message" placeholder="Your Message" required />
-
             <Button type="submit">
-              <FaPaperPlane /> Send Message
+              <FaPaperPlane /> Send
             </Button>
-
             {msg && <Message success={success}>{msg}</Message>}
           </Form>
         </Box>

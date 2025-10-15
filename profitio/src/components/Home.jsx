@@ -1,4 +1,4 @@
-// Home.jsx - Enhanced with better content and personal story
+// Home.jsx - Reduced height version for better layout balance
 import React from "react";
 import { FaGithub, FaLinkedin, FaEnvelope, FaFileDownload, FaEye } from "react-icons/fa";
 import styled, { keyframes } from "styled-components";
@@ -27,7 +27,7 @@ const HomeContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
+  min-height: 85vh; /* ⬅ reduced from 100vh */
   background: linear-gradient(-45deg, #0f0f23, #1a1a2e, #16213e, #0f3460);
   background-size: 400% 400%;
   animation: ${gradient} 15s ease infinite;
@@ -48,6 +48,11 @@ const HomeContainer = styled.div`
     );
     pointer-events: none;
   }
+
+  @media (max-width: 768px) {
+    min-height: auto;
+    padding: 2rem 1rem;
+  }
 `;
 
 const ContentWrapper = styled.div`
@@ -56,7 +61,7 @@ const ContentWrapper = styled.div`
   align-items: center;
   width: 100%;
   max-width: 1400px;
-  gap: 3rem;
+  gap: 2.5rem; /* slightly reduced */
   position: relative;
   z-index: 1;
 
@@ -64,13 +69,13 @@ const ContentWrapper = styled.div`
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 6rem;
+    gap: 5rem;
   }
 `;
 
 const TextSection = styled.div`
   animation: ${fadeInUp} 1s ease-out;
-  padding: 1.5rem;
+  padding: 1rem; /* smaller padding */
   max-width: 700px;
   text-align: center;
   position: relative;
@@ -81,34 +86,33 @@ const TextSection = styled.div`
 `;
 
 const Greeting = styled.div`
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   color: #33d0beff;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
   font-family: "Fira Code", monospace;
 `;
 
 const Title = styled.h1`
-  font-size: clamp(2.5rem, 5vw, 2rem);
-  font-weight: 600;
+  font-size: clamp(2.2rem, 5vw, 3rem);
+  font-weight: 700;
   background: linear-gradient(135deg, #33d0beff 0%, #20b2ca 50%, #48d1e6 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-bottom: 0.5rem;
-  
+  margin-bottom: 0.3rem;
 `;
 
 const Subtitle = styled.h2`
-  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-size: clamp(1.4rem, 3vw, 2rem);
   font-weight: 600;
   color: #33d0beff;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 `;
 
 const Description = styled.p`
   font-size: 1rem;
   color: #cbd5e0;
-  line-height: 1.8;
-  margin-bottom: 1.5rem;
+  line-height: 1.7;
+  margin-bottom: 1.3rem;
 
   strong {
     color: #33d0beff;
@@ -116,7 +120,7 @@ const Description = styled.p`
   }
 
   @media (min-width: 768px) {
-    font-size: 1.126rem;
+    font-size: 1.05rem;
   }
 `;
 
@@ -124,20 +128,17 @@ const TechStack = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1rem;
-  margin-bottom: 2rem;
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
 
   div {
-    padding: 0.5rem 1rem;
+    padding: 0.45rem 0.9rem;
     background: rgba(19, 177, 212, 0.1);
     border: 1px solid rgba(51, 208, 190, 0.3);
     border-radius: 25px;
     color: #33d0beff;
-    font-size: 0.875rem;
+    font-size: 0.85rem;
     font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
     transition: all 0.3s ease;
 
     &:hover {
@@ -156,19 +157,18 @@ const BottomSection = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
+  gap: 1.8rem;
   width: 100%;
 
   @media (min-width: 768px) {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    gap: 1rem;
   }
 `;
 
 const ResumeButton = styled.button`
-  padding: 1rem 2rem;
+  padding: 0.9rem 1.8rem;
   font-weight: 600;
   font-size: 1rem;
   color: #fff;
@@ -180,9 +180,7 @@ const ResumeButton = styled.button`
   gap: 0.8rem;
   transition: all 0.3s ease;
   cursor: pointer;
-  box-shadow: 0 6px 20px rgba(51, 208, 190, 0.4);
-  white-space: nowrap;
-  flex-shrink: 0;
+  box-shadow: 0 5px 18px rgba(51, 208, 190, 0.4);
 
   &:hover {
     transform: translateY(-3px);
@@ -193,7 +191,7 @@ const ResumeButton = styled.button`
 
 const SocialIcons = styled.div`
   display: flex;
-  gap: 1.5rem;
+  gap: 1.2rem;
   justify-content: center;
   align-items: center;
 
@@ -203,22 +201,20 @@ const SocialIcons = styled.div`
 `;
 
 const SocialIcon = styled.a`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
   background: rgba(51, 208, 190, 0.1);
   border: 2px solid rgba(51, 208, 190, 0.3);
   color: #33d0beff;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: all 0.3s ease;
-  cursor: pointer;
 
   &:hover {
     background: rgba(51, 208, 190, 0.2);
-    border-color: rgba(51, 208, 190, 0.5);
     transform: translateY(-3px) scale(1.1);
     box-shadow: 0 8px 20px rgba(51, 208, 190, 0.3);
     color: #fff;
@@ -229,28 +225,19 @@ const ImageSection = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
+  gap: 1.5rem;
   text-align: center;
-
-  @media (min-width: 1024px) {
-    align-items: center;
-  }
 `;
 
 const ImageContainer = styled.div`
-  width: 250px;
-  height: 350px; // smaller rectangle
+  width: 230px;
+  height: 320px; /* reduced */
   overflow: hidden;
   position: relative;
   animation: ${float} 6s ease-in-out infinite;
   border: 3px solid rgba(51, 208, 190, 0.3);
-  box-shadow: 0 8px 32px rgba(51, 208, 190, 0.2);
-  border-radius: 40px; // curved corners
-
-  @media (min-width: 768px) {
-    width: 250px;
-    height: 350px;
-  }
+  box-shadow: 0 6px 25px rgba(51, 208, 190, 0.2);
+  border-radius: 35px;
 
   img {
     width: 100%;
@@ -265,7 +252,6 @@ const ImageContainer = styled.div`
   }
 `;
 
-// Home Component
 const Home = () => {
   const handleResumeClick = () => {
     const resumeUrl =
@@ -278,7 +264,7 @@ const Home = () => {
 
     const link = document.createElement("a");
     link.href = resumeUrl;
-    link.download = "UB_Resume.pdf"; // updated file name to UB
+    link.download = "UB_Resume.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -289,18 +275,16 @@ const Home = () => {
       <ContentWrapper>
         <TextSection>
           <Greeting>👋 Hello, I'm</Greeting>
-          <Title>Umadevi Bogathi</Title> {/* Updated logo/name */}
+          <Title>Umadevi Bogathi</Title>
           <Subtitle>Full Stack Developer</Subtitle>
           <Description>
-            I am a dedicated Full Stack Developer committed to building{" "}
-            <strong>high-quality, scalable web applications</strong> using modern
-            technologies. With strong expertise in both frontend and backend
-            development, I design solutions that are{" "}
-            <strong>efficient, user-friendly, and performance-driven</strong>. I
-            have a keen interest in{" "}
-            <strong>data structures, algorithms, and problem-solving</strong>,
-            continually refining my skills to tackle complex challenges with
-            precision and creativity.
+            I am a passionate <strong>Full Stack Developer</strong> committed to
+            building <strong>high-quality, scalable web applications</strong> using
+            modern technologies. I focus on crafting solutions that are{" "}
+            <strong>efficient, user-friendly, and performance-driven</strong>.
+            With a strong grasp of{" "}
+            <strong>data structures, algorithms, and problem-solving</strong>, I
+            continuously refine my skills to create impactful products.
           </Description>
 
           <TechStack>
@@ -320,26 +304,13 @@ const Home = () => {
             </ResumeButton>
 
             <SocialIcons>
-              <SocialIcon 
-                href="https://github.com/umadevi-12" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                aria-label="GitHub"
-              >
+              <SocialIcon href="https://github.com/umadevi-12" target="_blank" rel="noopener noreferrer">
                 <FaGithub />
               </SocialIcon>
-              <SocialIcon 
-                href="https://www.linkedin.com/in/umadevi-bogathi-58404b312/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-              >
+              <SocialIcon href="https://www.linkedin.com/in/umadevi-bogathi-58404b312/" target="_blank" rel="noopener noreferrer">
                 <FaLinkedin />
               </SocialIcon>
-              <SocialIcon 
-                href="mailto:bogathiu@gmail.com"
-                aria-label="Email"
-              >
+              <SocialIcon href="mailto:bogathiu@gmail.com">
                 <FaEnvelope />
               </SocialIcon>
             </SocialIcons>
